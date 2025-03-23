@@ -22,7 +22,7 @@ export default function Courses() {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
-  const [selectedSchoolYear, setSelectedSchoolYear] = useState<string>("");
+  const [selectedSchoolYear, setSelectedSchoolYear] = useState<string>("all");
   const [courseType, setCourseType] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const { toast } = useToast();
@@ -39,9 +39,9 @@ export default function Courses() {
   });
 
   const { data: courses, isLoading: loadingCourses } = useQuery<Course[]>({
-    queryKey: ['/api/courses', selectedSchoolYear ? parseInt(selectedSchoolYear) : undefined],
+    queryKey: ['/api/courses', selectedSchoolYear !== "all" ? parseInt(selectedSchoolYear) : undefined],
     queryFn: async () => {
-      const url = selectedSchoolYear 
+      const url = selectedSchoolYear !== "all" 
         ? `/api/courses?schoolYearId=${selectedSchoolYear}` 
         : '/api/courses';
       const res = await fetch(url, { credentials: 'include' });
@@ -212,7 +212,7 @@ export default function Courses() {
                   <SelectValue placeholder={t("allSchoolYears")} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">{t("allSchoolYears")}</SelectItem>
+                  <SelectItem value="all">{t("allSchoolYears")}</SelectItem>
                   {schoolYears?.map(year => (
                     <SelectItem key={year.id} value={year.id.toString()}>
                       {year.name}
@@ -338,7 +338,7 @@ export default function Courses() {
               ) : (
                 <TableRow>
                   <TableCell colSpan={6} className="text-center py-8 text-gray-500">
-                    {searchTerm || courseType !== "all" || selectedSchoolYear 
+                    {searchTerm || courseType !== "all" || selectedSchoolYear !== "all" 
                       ? t("noCoursesMatchingFilters") 
                       : t("noCourses")}
                   </TableCell>
