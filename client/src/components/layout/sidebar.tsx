@@ -56,8 +56,8 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-primary text-white hidden md:block">
-      <div className="p-4 border-b border-muted-foreground/20 flex items-center space-x-3">
+    <aside className="w-64 bg-slate-800 text-white hidden md:block">
+      <div className="p-4 border-b border-slate-700 flex items-center space-x-3">
         <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
             <path d="m18 16 4-4-4-4" />
@@ -66,8 +66,8 @@ export function Sidebar() {
           </svg>
         </div>
         <div>
-          <h1 className="text-lg font-semibold truncate">{t("cretanClub")}</h1>
-          <p className="text-xs text-muted-foreground">{t("managementSystem")}</p>
+          <h1 className="text-lg font-semibold truncate text-white">{t("cretanClub")}</h1>
+          <p className="text-xs text-slate-400">{t("managementSystem")}</p>
         </div>
       </div>
       <nav className="mt-4">
@@ -77,15 +77,15 @@ export function Sidebar() {
               <Link 
                 href={item.href}
                 className={cn(
-                  "flex items-center px-4 py-3 text-sm rounded-lg transition-colors duration-200 ease-in-out",
+                  "flex items-center px-4 py-3 text-sm rounded-lg transition-colors duration-200 ease-in-out text-white",
                   item.current 
-                    ? "bg-muted/80" 
-                    : "hover:bg-muted/50"
+                    ? "bg-slate-700" 
+                    : "hover:bg-slate-700/50"
                 )}
               >
                 <item.icon className={cn(
                   "mr-3 h-5 w-5",
-                  item.current ? "text-white" : "text-muted-foreground"
+                  item.current ? "text-white" : "text-slate-400"
                 )} />
                 {item.name}
               </Link>
@@ -93,10 +93,10 @@ export function Sidebar() {
           ))}
         </ul>
       </nav>
-      <div className="absolute bottom-0 w-64 p-4 border-t border-muted-foreground/20">
+      <div className="absolute bottom-0 w-64 p-4 border-t border-slate-700">
         <button 
           onClick={logout}
-          className="flex items-center text-sm text-muted-foreground hover:text-white transition-colors duration-200 ease-in-out"
+          className="flex items-center text-sm text-slate-400 hover:text-white transition-colors duration-200 ease-in-out"
         >
           <LogOut className="mr-3 h-5 w-5" />
           {t("logout")}
