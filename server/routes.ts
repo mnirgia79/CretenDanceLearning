@@ -111,6 +111,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // User management routes (Admin only)
+  app.post("/api/users", authenticate, async (req, res) => {
+    try {
+      // Check if user is admin
+      if (!req.session.isAdmin) {
+        return res.status(403).json({ message: "Unauthorized - Admin rights required" });
+      }
+      
+      const validatedData = insertUserSchema.parse(req.body);
+      const user = await storage.createUser(validatedData);
+      
+      // Don't return the password
+      const { password: _, ...userInfo } = user;
+      res.status(201).json(userInfo);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid input", errors: error.errors });
+      }
+      res.status(500).json({ message: "Failed to create user" });
+    }
+  });
+  
   // School Year routes
   app.get("/api/school-years", authenticate, async (req, res) => {
     try {
