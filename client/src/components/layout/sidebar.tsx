@@ -57,7 +57,7 @@ export function Sidebar() {
 
   return (
     <aside className="w-64 bg-primary text-white hidden md:block">
-      <div className="p-4 border-b border-primary-dark flex items-center space-x-3">
+      <div className="p-4 border-b border-muted-foreground/20 flex items-center space-x-3">
         <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
             <path d="m18 16 4-4-4-4" />
@@ -67,7 +67,7 @@ export function Sidebar() {
         </div>
         <div>
           <h1 className="text-lg font-semibold truncate">{t("cretanClub")}</h1>
-          <p className="text-xs text-primary-light">{t("managementSystem")}</p>
+          <p className="text-xs text-muted-foreground">{t("managementSystem")}</p>
         </div>
       </div>
       <nav className="mt-4">
@@ -79,13 +79,13 @@ export function Sidebar() {
                 className={cn(
                   "flex items-center px-4 py-3 text-sm rounded-lg transition-colors duration-200 ease-in-out",
                   item.current 
-                    ? "bg-primary-dark" 
-                    : "hover:bg-primary-dark"
+                    ? "bg-muted/80" 
+                    : "hover:bg-muted/50"
                 )}
               >
                 <item.icon className={cn(
                   "mr-3 h-5 w-5",
-                  item.current ? "text-white" : "text-primary-light"
+                  item.current ? "text-white" : "text-muted-foreground"
                 )} />
                 {item.name}
               </Link>
@@ -93,10 +93,10 @@ export function Sidebar() {
           ))}
         </ul>
       </nav>
-      <div className="absolute bottom-0 w-64 p-4 border-t border-primary-dark">
+      <div className="absolute bottom-0 w-64 p-4 border-t border-muted-foreground/20">
         <button 
           onClick={logout}
-          className="flex items-center text-sm text-primary-light hover:text-white transition-colors duration-200 ease-in-out"
+          className="flex items-center text-sm text-muted-foreground hover:text-white transition-colors duration-200 ease-in-out"
         >
           <LogOut className="mr-3 h-5 w-5" />
           {t("logout")}
