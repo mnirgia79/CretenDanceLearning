@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { PlusIcon, PencilIcon, TrashIcon, EyeIcon, BookOpenIcon, MusicIcon, TheaterIcon } from "lucide-react";
+import { PlusIcon, PencilIcon, TrashIcon, EyeIcon, BookOpenIcon, MusicIcon, Palmtree } from "lucide-react";
 import { CourseForm } from "@/components/courses/course-form";
 import { Link } from "wouter";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
@@ -152,7 +152,7 @@ export default function Courses() {
       case "music":
         return <MusicIcon className="h-4 w-4" />;
       case "culture":
-        return <TheaterIcon className="h-4 w-4" />;
+        return <Palmtree className="h-4 w-4" />;
       default:
         return <BookOpenIcon className="h-4 w-4" />;
     }
