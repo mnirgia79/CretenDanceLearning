@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a628f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 16 4-4-4-4' /%3E%3Cpath d='m6 8-4 4 4 4' /%3E%3Cpath d='m14.5 4-5 16' /%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Σύστημα Διαχείρισης Μαθημάτων - Κρητικός Σύλλογος</title>
+    <style>
+      :root {
+        --primary: #2a628f;
+        --primary-dark: #1d4466;
+        --primary-light: #3a7fb0;
+        --accent: #d13b40;
+        --accent-light: #e45a5e;
+        --accent-dark: #b02e32;
+        --secondary: #e5d092;
+        --secondary-light: #f2e3b1;
+        --secondary-dark: #c9b979;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a1a1a1;
+      }
+      
+      /* Table fixed header */
+      .sticky-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .attendance-table th, .attendance-table td {
+        min-width: 40px;
+      }
+      
+      .attendance-table .student-name {
+        position: sticky;
+        left: 0;
+        background-color: white;
+        z-index: 5;
+        min-width: 200px;
+      }
+      
+      body {
+        font-family: 'Roboto', 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
